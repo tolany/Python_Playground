@@ -1,14 +1,16 @@
 class Settings():
-    # 외계인 침공 게임의 설정을 저장하는 클래스 
+    # 게임의 모든 설정을 저장하기 위한 클래스 
 
     def __init__(self):
-        # 게임설정 초기화 
-
-        #화면설정 
-        self.screen_width = 1200 
+        # 스크린 설정 
+        self.screen_width = 1200
         self.screen_height = 800
-        self.bg_color = (230,230,230)
+        self.bg_color = (230, 230, 230)
 
-        #우주선 설정 
-        self.ship_speed_factor = 1.5
-        
+        self.ship_speed_factor = 1.5 
+
+        # 볼릿 설정 
+        self.bullet_speed_factor = 1 
+        self.bullet_width = 3 
+        self.bullet_height = 15
+        self.bullet_color = 60, 60, 60
