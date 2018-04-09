@@ -14,7 +14,8 @@ def run_game():
     )
     pygame.display.set_caption("Alien Invasion")
 
-    ship = Ship(screen)
+    #우주선을 만듭니다. 
+    ship = Ship(ai_settings, screen)
 
     #배경색을 지정합니다. 
     # bg_color = (230,230,230)
