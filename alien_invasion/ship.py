@@ -14,6 +14,14 @@ class Ship():
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottem = self.screen_rect.bottem
 
+        #이동 플래그 
+        self.moving_right = False
+    
+    def update(self):
+        #이동 플래그에 따라 위치를 업데이트 합니다. 
+        if self.moving_right:
+            self.rect.centerx += 1 
+
     def blitme(self):
         #우주선의 현재 위치에 우주선을 그립니다. 
         self.screen.blit(self.image, self.rect)

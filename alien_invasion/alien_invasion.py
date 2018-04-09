@@ -3,6 +3,7 @@ import pygame
 
 from settings import Settings
 from ship import Ship
+import game_functions as gf
 
 def run_game():
     #게임을 초기화하고 화면 객체를 만든다. 
@@ -20,19 +21,10 @@ def run_game():
 
     #게임 루프를 시작합니다.  
     while Trun:
-
-        #키보드와 마우스 이벤트를 주시합니다. 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-        #루프를 실행할 때마다 화면을 다시 그립니다. 
-        screen.fill(
-            (ai_settings.bg_color)
-        )
-        ship.blitme()
-
-        #가장 최근에 그린 화면을 표시합니다. 
-        pygame.display.flip()
+        gf.check_events(ship)
+        ship.update()
+        gf.update_screen(ai_settings,screen,ship)
+       
 
 run_game()
 
