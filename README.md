@@ -1,5 +1,5 @@
-# Python_Playground
+# Python Playground
 
 Include Projects:
-  <li> pygame project : alien game 
-  <li> python basic syntax : Jump to Python 
+  <li> Pygame project : alien game 
+  <li> Python basic syntax : Jump to Python 
