@@ -146,5 +146,65 @@ def check_aliens_bottom(ai_settings, stats, screen, sb, ship, aliens, bullets):
     for alien in aliens.sprites():
         if alien.rect.bottom >= screen_rect.bottom:
             ship_hit(ai_settings, stats, screen, sb, ship, aliens, bullets) 
+            break
+
+def update_aliens(ai_settings, stats, screen, sb, ship, aliens, bullets):
+    check_fleet_edges(ai_settings, aliens)
+    aliens.update()
+
+    if pygame.sprite.spritecollideany(ship, aliens):
+        ship_hit(ai_settings, stats, screen, sb, ship, aliens, bullets)
+
+    check_aliens_bottom(ai_settings, stats, screen, sb, ship, aliens, bullets)
+
+def check_fleet_edges(ai_settings, aliens):
+    for alien in aliens.sprites():
+        if alien.check_edges():
+            change_fleet_direction(ai_settings, aliens)
             break 
 
+def ship_hit(ai_settings, stats, screen, sb, ship, aliens, bullets):
+    
+    # Decrement ships_left
+    stats.ships_left -= 1
+    
+    if stats.ships_left > 0:
+
+        #update Scoreboards
+        sb.prep_ships()
+
+        # Empty the list of aliens and bullets 
+        aliens.empty()
+        bullets.empty()
+
+        # Create a new fleet and center the ship 
+        create_fleet(ai_settings, screen, ship, aliens)
+        ship.cetner_ship()
+
+        #pause 
+        sleep(0.5)
+    
+    else:
+        stats.game_active = False 
+        pygame.mouse.set_visible(True)
+
+def start_game(ai_settings, screen, stats, aliens, bullets):
+
+    pygame.mouse.set_visible(False)
+
+    stats.reset_stats()
+    stats.game_active = True 
+
+    sb.prep_images()
+
+    aliens.empty()
+    bullets.empty()
+
+    create_fleet(ai_settings, screen, ship, aliens)
+    ship.center_ship()
+
+def check_high_score(stats, sb):
+    if stats.score > stats.high_score:
+        stats.high_score = stats.score 
+        sb.prep_high_score()
+        
