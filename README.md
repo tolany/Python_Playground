@@ -1,10 +1,10 @@
 # Python Playground
 
-<li>Include Projects:
+- Include Projects:
   <li> Pygame project : alien game 
   <li> Python basic syntax : Jump to Python 
 
-<li>Manual:
+- Manual:
   <li> pygame project : Alien Invasion 
        required package : pygame 
   
