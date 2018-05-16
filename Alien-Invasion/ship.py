@@ -1,8 +1,6 @@
 import pygame 
-<<<<<<< HEAD
 from pygame.sprite import Sprite
-=======
->>>>>>> 58380bc7fd9efa247877c93721ca48ba7dbb125d
+
 class Ship(Sprite):
 
     # Initialize the ship and set its starting position
@@ -38,5 +36,5 @@ class Ship(Sprite):
         self.screen.blit(self.image, self.rect)
 
     # center the ship on the screen 
-    self.center = self.screen_rect.centerx 
+        self.center = self.screen_rect.centerx 
     
