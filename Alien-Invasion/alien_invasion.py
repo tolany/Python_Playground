@@ -36,7 +36,7 @@ def run_game():
 
     # 게임 메인 루프 시작 
     while True:
-        gf.check_events(ai_settings, screen, stats, sb, play_button ship, bullets)
+        gf.check_events(ai_settings, screen, stats, sb, play_button, ship, bullets)
 
         if stats.game_active:
             ship.update()
